@@ -1,6 +1,5 @@
-import { PokemonGrid, SimplePokemon } from "@/app/pokemons";
-import { PokemonReponse } from "@/app/pokemons/interfaces/pokemons-response";
-import Image from "next/image";
+import { PokemonGrid, SimplePokemon } from "@/pokemons";
+import { PokemonReponse } from "@/pokemons/interfaces/pokemons-response";
 
 const getPokemons = async (limit= 20, offset = 0):Promise<SimplePokemon[]> => {
   const data:PokemonReponse = await fetch(
@@ -8,12 +7,13 @@ const getPokemons = async (limit= 20, offset = 0):Promise<SimplePokemon[]> => {
     .then((res) => res.json())
 
     const pokemons =data.results.map(pokemon => ({ 
-      id: pokemon.url.split('/').at(-2),
+      id: pokemon.url.split('/').at(-2)!,
       name: pokemon.name,
       image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split('/')[6]}.png`
     }))
+
     
-    return pokemons
+    return pokemons;
 };
 
 export default async function PokemonsPage() {
