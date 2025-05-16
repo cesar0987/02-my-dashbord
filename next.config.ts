@@ -8,6 +8,21 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "pokeapi.co",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "img.pokemondb.net",
+        port: "",
+      },
     ]
   }
 };
